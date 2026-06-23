@@ -32,7 +32,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Copy package manifests and install dependencies
 COPY package*.json ./
-RUN npm ci --no-optional --prefer-offline
+# Use `npm install` in the Docker build to avoid `npm ci` lockfile mismatch errors on CI
+RUN npm install --no-optional --prefer-offline
 
 # Copy the rest of the source
 COPY . .

@@ -1,0 +1,9 @@
+# Render service config template. Replace <YOUR_GITHUB_REPO> and adjust branch if needed.
+services:
+  - type: web
+    name: leadership-report
+    env: docker
+    repo: <YOUR_GITHUB_REPO>
+    branch: main
+    dockerfilePath: ./Dockerfile
+    plan: starter

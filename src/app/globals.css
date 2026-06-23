@@ -1,0 +1,104 @@
+/* Annual Report Theme */
+.report-container {
+  background: #fff;
+  color: #0a2342;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(10,35,66,0.08);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+.report-container h1, .report-container h2, .report-container h3, .report-container h4 {
+  color: #0a2342;
+}
+
+.report-container hr {
+  border: none;
+  border-top: 2px solid #0a2342;
+  margin: 32px 0;
+}
+
+.report-container button {
+  background: #0a2342;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.report-container button:hover {
+  background: #173e6c;
+}
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Slightly larger base font for better readability and PDF rendering */
+html, body {
+  font-size: 17px;
+}
+
+/* Hide download buttons and floating UI when printing */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  #report-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Reduce large section spacing and remove forced full-screen heights in print/PDF */
+  section, .min-h-screen {
+    min-height: auto !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    page-break-inside: avoid;
+  }
+
+  /* Slightly larger fonts when printing to PDF */
+  body {
+    font-size: 17px !important;
+    line-height: 1.45 !important;
+  }
+}

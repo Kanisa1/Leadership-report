@@ -32,8 +32,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Copy package manifests and install dependencies
 COPY package*.json ./
-# Use `npm install` in the Docker build to avoid `npm ci` lockfile mismatch errors on CI
-RUN npm install --no-optional --prefer-offline
+# Install dependencies (include optional deps so Playwright gets installed in the image)
+RUN npm install
 
 # Copy the rest of the source
 COPY . .

@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "eslint"
   },
-  "postinstall": "playwright install --with-deps chromium",
   "dependencies": {
     "html2pdf.js": "^0.14.0",
     "next": "16.2.6",
